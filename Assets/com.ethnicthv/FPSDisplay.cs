@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using TMPro;
 using UnityEngine.Serialization;
 
@@ -9,7 +10,13 @@ namespace com.ethnicthv
         public TextMeshProUGUI display;
         
         public float deltaTime = 0.2f;
-        
+
+        private void Start()
+        {
+            QualitySettings.vSyncCount = 0;
+            Application.targetFrameRate = 1000;
+        }
+
         private void Update()
         {
             deltaTime -= Time.deltaTime;
@@ -20,8 +27,5 @@ namespace com.ethnicthv
                 deltaTime = 0.2f;
             }
         }
-        
-        
-        
     }
 }
